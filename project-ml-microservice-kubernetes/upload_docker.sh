@@ -5,11 +5,15 @@
 
 # Step 1:
 # Create dockerpath
-# dockerpath=<your docker ID/path>
+dockerpath='nannabat/publicyard:mlmicroservicelocal'
 
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
+cat ~/.keys/docker_access_token.txt | docker login --username nannabat --password-stdin
+
 
 # Step 3:
 # Push image to a docker repository
+docker push $dockerpath
+
